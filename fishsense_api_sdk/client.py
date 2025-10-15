@@ -1,6 +1,7 @@
 from fishsense_api_sdk.clients.camera_client import CameraClient
 from fishsense_api_sdk.clients.dive_client import DiveClient
 from fishsense_api_sdk.clients.image_client import ImageClient
+from fishsense_api_sdk.clients.label_client import LabelClient
 
 
 class Client:
@@ -16,9 +17,14 @@ class Client:
     def images(self) -> ImageClient:
         return self.__images
 
+    @property
+    def labels(self) -> LabelClient:
+        return self.__labels
+
     def __init__(self, base_url: str, timeout: int = 10):
         self.base_url = base_url
 
         self.__cameras = CameraClient(base_url, timeout)
         self.__dives = DiveClient(base_url, timeout)
         self.__images = ImageClient(base_url, timeout)
+        self.__labels = LabelClient(base_url, timeout)
