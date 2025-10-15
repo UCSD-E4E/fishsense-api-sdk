@@ -24,7 +24,7 @@ class ImageClient(ClientBase):
     async def post_cluster(self, dive_id: int, image_ids: List[int]) -> int:
         async with httpx.AsyncClient() as client:
             response = await client.post(
-                f"{self.base_url}/api/v1/dives/{dive_id}/images/cluster/",
+                f"{self.base_url}/api/v1/dives/{dive_id}/images/clusters/",
                 json={"image_ids": image_ids},
             )
             response.raise_for_status()
