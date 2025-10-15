@@ -10,8 +10,13 @@ class DiveClient(ClientBase):
     def __init__(self, base_url: str):
         super().__init__(base_url)
 
-    async def get(self) -> List[Dive]:
+    async def get(self, dive_id: int | None = None) -> Dive | List[Dive]:
         async with httpx.AsyncClient() as client:
-            response = await client.get(f"{self.base_url}/api/v1/dives/")
-            response.raise_for_status()
-            return [Dive.model_validate(dive) for dive in response.json()]
+            if dive_id is not None:
+                response = await client.get(f"{self.base_url}/api/v1/dives/{dive_id}")
+                response.raise_for_status()
+                return Dive.model_validate(response.json())
+            else:
+                response = await client.get(f"{self.base_url}/api/v1/dives/")
+                response.raise_for_status()
+                return [Dive.model_validate(dive) for dive in response.json()]
