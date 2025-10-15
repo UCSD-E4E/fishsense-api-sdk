@@ -1,6 +1,12 @@
 from abc import ABC
 
+import httpx
+
 
 class ClientBase(ABC):
-    def __init__(self, base_url: str):
+    def __init__(self, base_url: str, timeout):
         self.base_url = base_url
+        self.timeout = timeout
+
+    def _create_client(self) -> httpx.AsyncClient:
+        return httpx.AsyncClient(base_url=self.base_url, timeout=self.timeout)

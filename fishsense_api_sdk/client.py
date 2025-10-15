@@ -11,8 +11,8 @@ class Client:
     def images(self) -> ImageClient:
         return self.__images
 
-    def __init__(self, base_url: str):
+    def __init__(self, base_url: str, timeout: int = 10):
         self.base_url = base_url
 
-        self.__dives = DiveClient(base_url)
-        self.__images = ImageClient(base_url)
+        self.__dives = DiveClient(base_url, timeout)
+        self.__images = ImageClient(base_url, timeout)
