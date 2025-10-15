@@ -25,7 +25,7 @@ class ImageClient(ClientBase):
         async with httpx.AsyncClient() as client:
             response = await client.post(
                 f"{self.base_url}/api/v1/dives/{dive_id}/images/clusters/",
-                json={"image_ids": image_ids},
+                json=image_ids,
             )
             response.raise_for_status()
             return response.json()
