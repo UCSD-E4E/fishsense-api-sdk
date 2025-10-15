@@ -1,8 +1,7 @@
 from typing import List
 
-import httpx
-
 from fishsense_api_sdk.clients.client_base import ClientBase
+from fishsense_api_sdk.models.dive_frame_cluster import DiveFrameCluster
 from fishsense_api_sdk.models.image import Image
 
 
@@ -18,6 +17,14 @@ class ImageClient(ClientBase):
                 return [Image.model_validate(image) for image in response.json()]
             else:
                 raise NotImplementedError("Getting all images is not supported.")
+
+    async def get_clusters(self, dive_id: int) -> List[DiveFrameCluster]:
+        async with self._create_client() as client:
+            response = await client.get(f"/api/v1/dives/{dive_id}/images/clusters/")
+            response.raise_for_status()
+            return [
+                DiveFrameCluster.model_validate(cluster) for cluster in response.json()
+            ]
 
     async def post_cluster(self, dive_id: int, image_ids: List[int]) -> int:
         async with self._create_client() as client:

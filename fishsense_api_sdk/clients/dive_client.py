@@ -1,7 +1,5 @@
 from typing import List
 
-import httpx
-
 from fishsense_api_sdk.clients.client_base import ClientBase
 from fishsense_api_sdk.models.dive import Dive
 
