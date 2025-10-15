@@ -20,13 +20,11 @@ class CameraClient(ClientBase):
 
     async def post_intrinsics(
         self, camera_id: int, camera_intrinsics: CameraIntrinsics
-    ) -> CameraIntrinsics:
+    ) -> int:
         async with self._create_client() as client:
             response = await client.post(
                 f"/api/v1/cameras/{camera_id}/intrinsics/",
                 json=camera_intrinsics._to_internal().model_dump(),
             )
             response.raise_for_status()
-            return CameraIntrinsics._from_internal(
-                _CameraIntrinsics.model_validate(response.json())
-            )
+            return response.json()
