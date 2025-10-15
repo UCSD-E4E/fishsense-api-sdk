@@ -9,6 +9,7 @@ class SpeciesLabel(BaseModel):
 
     id: int | None
     label_studio_task_id: int | None
+    image_url: str | None
     updated_at: datetime | None
     completed: bool | None
     label_studio_json: Dict[str, Any] | None
