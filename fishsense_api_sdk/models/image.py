@@ -3,7 +3,7 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
-class Dive(BaseModel):
+class Image(BaseModel):
     """Model representing an image."""
 
     id: int | None
