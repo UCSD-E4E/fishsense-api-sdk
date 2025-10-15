@@ -26,7 +26,11 @@ class CameraIntrinsics:
     ):
         self.id = id
         self.camera_matrix = camera_matrix
-        self.distortion_coefficients = distortion_coefficients
+        self.distortion_coefficients = (
+            distortion_coefficients.squeeze()
+            if distortion_coefficients is not None
+            else None
+        )
         self.camera_id = camera_id
 
     def _from_internal(internal: _CameraIntrinsics) -> Self:
