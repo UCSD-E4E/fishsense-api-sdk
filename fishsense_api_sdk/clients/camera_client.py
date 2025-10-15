@@ -18,12 +18,12 @@ class CameraClient(ClientBase):
             response.raise_for_status()
             return [Camera.model_validate(camera) for camera in response.json()]
 
-    async def post_intrinsincs(
-        self, camera_intrinsics: CameraIntrinsics
+    async def post_intrinsics(
+        self, camera_id: int, camera_intrinsics: CameraIntrinsics
     ) -> CameraIntrinsics:
         async with self._create_client() as client:
             response = await client.post(
-                "/api/v1/cameras/intrinsics/",
+                f"/api/v1/cameras/{camera_id}/intrinsics/",
                 json=camera_intrinsics._to_internal().model_dump(),
             )
             response.raise_for_status()
