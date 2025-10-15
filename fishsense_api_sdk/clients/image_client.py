@@ -17,6 +17,6 @@ class ImageClient(ClientBase):
                     f"{self.base_url}/api/v1/dives/{dive_id}/images/"
                 )
                 response.raise_for_status()
-                return Image.model_validate(response.json())
+                return [Image.model_validate(image) for image in response.json()]
             else:
                 raise NotImplementedError("Getting all images is not supported.")
