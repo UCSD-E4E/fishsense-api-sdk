@@ -19,10 +19,10 @@ class CameraIntrinsics:
 
     def __init__(
         self,
-        id: int | None,
         camera_matrix: np.ndarray[float] | None,
         distortion_coefficients: np.ndarray[float] | None,
         camera_id: int | None,
+        id: int | None = None,
     ):
         self.id = id
         self.camera_matrix = camera_matrix
