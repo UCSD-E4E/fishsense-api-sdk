@@ -10,7 +10,8 @@ class DiveClient(ClientBase):
     def __init__(self, base_url: str):
         super().__init__(base_url)
 
-    def get(self) -> List[Dive]:
-        response = httpx.get(f"{self.base_url}/api/v1/dives")
-        response.raise_for_status()
-        return [Dive.model_validate(dive) for dive in response.json()]
+    async def get(self) -> List[Dive]:
+        async with httpx.AsyncClient() as client:
+            response = await client.get(f"{self.base_url}/api/v1/dives")
+            response.raise_for_status()
+            return [Dive.model_validate(dive) for dive in response.json()]
