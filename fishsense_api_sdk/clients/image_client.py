@@ -20,3 +20,12 @@ class ImageClient(ClientBase):
                 return [Image.model_validate(image) for image in response.json()]
             else:
                 raise NotImplementedError("Getting all images is not supported.")
+
+    async def post_cluster(self, dive_id: int, image_ids: List[int]) -> int:
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                f"{self.base_url}/api/v1/dives/{dive_id}/images/cluster/",
+                json={"image_ids": image_ids},
+            )
+            response.raise_for_status()
+            return response.json()
