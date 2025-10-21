@@ -1,3 +1,5 @@
+"""Module defining camera model for Fishsense API SDK."""
+
 from pydantic import BaseModel
 
 

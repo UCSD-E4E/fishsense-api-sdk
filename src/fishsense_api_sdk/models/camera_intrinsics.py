@@ -1,3 +1,5 @@
+"""Module defining camera intrinsics model for Fishsense API SDK."""
+
 from typing import List, Self
 
 import numpy as np
@@ -15,6 +17,7 @@ class _CameraIntrinsics(BaseModel):
 
 
 class CameraIntrinsics:
+    # pylint: disable=too-few-public-methods
     """Class representing camera intrinsics."""
 
     def __init__(
@@ -22,7 +25,7 @@ class CameraIntrinsics:
         camera_matrix: np.ndarray[float] | None,
         distortion_coefficients: np.ndarray[float] | None,
         camera_id: int | None,
-        id: int | None = None,
+        id: int | None = None,  # pylint: disable=redefined-builtin
     ):
         self.id = id
         self.camera_matrix = camera_matrix
@@ -33,6 +36,7 @@ class CameraIntrinsics:
         )
         self.camera_id = camera_id
 
+    @staticmethod
     def _from_internal(internal: _CameraIntrinsics) -> Self:
         return CameraIntrinsics(
             id=internal.id,

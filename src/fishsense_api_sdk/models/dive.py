@@ -1,3 +1,5 @@
+"""Module defining dive model for Fishsense API SDK."""
+
 from datetime import datetime
 
 from pydantic import BaseModel

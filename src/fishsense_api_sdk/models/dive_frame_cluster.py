@@ -1,3 +1,5 @@
+"""Module defining dive frame cluster model for Fishsense API SDK."""
+
 from typing import List
 
 from pydantic import BaseModel

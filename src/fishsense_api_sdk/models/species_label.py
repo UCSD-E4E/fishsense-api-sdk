@@ -1,17 +1,18 @@
+"""Module defining species label model for Fishsense API SDK."""
+
 from datetime import datetime
 from typing import Any, Dict
 
 from pydantic import BaseModel
 
 
-class LaserLabel(BaseModel):
-    """Model representing a laser label."""
+class SpeciesLabel(BaseModel):
+    # pylint: disable=duplicate-code
+    """Model representing a species label."""
 
     id: int | None
     label_studio_task_id: int | None
-    x: float | None
-    y: float | None
-    label: str | None
+    image_url: str | None
     updated_at: datetime | None
     completed: bool | None
     label_studio_json: Dict[str, Any] | None
