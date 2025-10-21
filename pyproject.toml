@@ -15,7 +15,7 @@ dev = [
     "pylint>=4.0.2",
 ]
 
-tool.semantic_release]
+[tool.semantic_release]
 version_variables = ["src/fishsense_api_sdk/__init__.py:__version__"]
 version_toml = [
     "pyproject.toml:project.version",
