@@ -62,8 +62,8 @@ wheels = [
 
 [[package]]
 name = "fishsense-api-sdk"
-version = "0.1.0"
-source = { virtual = "." }
+version = "1.0.0"
+source = { editable = "." }
 dependencies = [
     { name = "httpx" },
     { name = "numpy" },
@@ -78,7 +78,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "httpx", specifier = ">=0.28.1" },
-    { name = "numpy", specifier = ">=2.3.3" },
+    { name = "numpy", specifier = ">=2" },
     { name = "pydantic", specifier = ">=2.12.2" },
 ]
 
