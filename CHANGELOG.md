@@ -2,6 +2,22 @@
 
 <!-- version list -->
 
+## v1.1.0 (2025-10-30)
+
+### Chores
+
+- Add flake.lock and codeowners
+  ([`d95c93f`](https://github.com/UCSD-E4E/fishsense-api-sdk/commit/d95c93f447e830dbffa5d7eb387559b657e9938d))
+
+- Update uv lock
+  ([`8edc474`](https://github.com/UCSD-E4E/fishsense-api-sdk/commit/8edc47412de7c4af2f7f29b555dfdf5578ce9dd9))
+
+### Features
+
+- Introduce flakes
+  ([`ef20130`](https://github.com/UCSD-E4E/fishsense-api-sdk/commit/ef201302e75ba5d9e9d20f471129dbd8328ea411))
+
+
 ## v1.0.1 (2025-10-22)
 
 ### Bug Fixes
