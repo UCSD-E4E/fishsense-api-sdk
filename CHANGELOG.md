@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.1.1 (2025-10-30)
+
+### Bug Fixes
+
+- Remove flakes. readonly file system issue with notebooks
+  ([`cc65e41`](https://github.com/UCSD-E4E/fishsense-api-sdk/commit/cc65e419030010a392cba5865e54c11dc47237b1))
+
+
 ## v1.1.0 (2025-10-30)
 
 ### Chores
